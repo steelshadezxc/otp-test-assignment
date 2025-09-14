@@ -23,9 +23,17 @@ def test_code_empty():
     checker = OTPChecker()
     assert checker.validate_code("", "") is False
 
-
 def test_code_negative_numbers():
     checker = OTPChecker()
     assert checker.validate_code("-123456", "-123456") is False
 
+def test_invalid_expected_length():
+    checker = OTPChecker()
+    assert checker.validate_code("123456", "12345") is False
+
+def test_invalid_input_type():
+    checker = OTPChecker()
+    assert checker.validate_code(123456, "123456") is False
+    assert checker.validate_code("123456", 123456) is False
+    assert checker.validate_code("123456", None) is False
 

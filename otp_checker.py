@@ -7,7 +7,8 @@ class OTPChecker:
         - Верни True если код валиден, иначе False.
         Подумай над граничными случаями.
         """
-        if not (code.isdigit() and len(code) == 6):
+
+        if not (type(code) == str and code.isdigit() and len(code) == 6):
             return False
 
         """

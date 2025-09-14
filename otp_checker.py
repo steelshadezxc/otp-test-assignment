@@ -8,12 +8,11 @@ class OTPChecker:
         Подумай над граничными случаями.
         """
 
-        if not (type(code) == str and code.isdigit() and len(code) == 6):
+        if not (
+                type(code) == str and
+                type(expected) == str and
+                code.isdigit() and
+                len(code) == 6):
             return False
-
-        """
-        - expected не проверяю
-        - так как если code невалидный дальнейшие проверки проводить нет смысла
-        """
 
         return code == expected
